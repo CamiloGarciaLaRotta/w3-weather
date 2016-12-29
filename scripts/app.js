@@ -41,7 +41,6 @@ function watchForHelp() {
 
 //// Helper methods
 
-
 function plotWeather(obj) {
     console.dir(obj)
 }

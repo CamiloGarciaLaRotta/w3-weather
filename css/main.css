@@ -3,36 +3,48 @@
 * {
 	box-sizing: border-box;
 }
+
 html, body {
-	min-width: 100%;
-	min-height: 100%;
+	height:100%;
+	width: 100%;
+	margin:0;
+	padding:0;
 }
+
 header {
 	position: fixed;
 	left: 50%;
 	top: 20%;
 	transform: translate(-50%, -20%);
 }
-.background {     /*DELETE IF ANIMATION DOESNT REQUIRE DIV*/
-    margin: 0;
+
+.background {
+	margin: 0;
 	padding: 0;
-    width: 100%;
-    height: 100%;   
 	position: fixed;
 	top: 0;
+	bottom: 0;
 	left: 0;
+	right: 0;
 	z-index: -1;
-	background-color: #FFF;
+}
+
+#defaultCanvas0 {  
+    margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+
 }
 .help-btn {
-    height: 50px;
+    height: 60px;
 	position: fixed;
 	bottom: 10px;
 	left: 10px;
 	z-index: 3;
 }
 .help-btn:active {
-	height: 45px;
+	height: 55px;
 }
 .help-text {
 	display: none;
@@ -48,7 +60,7 @@ h1 {
     margin: 0;
 	padding-bottom: 0;
 	font-weight: 700;
-	font-size: 60px;
+	font-size: 70px;
     color: #253D5B;
 }
 p {
@@ -56,14 +68,14 @@ p {
     padding-top: 0;
 	font-style: italic;
 	font-weight: lighter;
-	font-size: 30px;
+	font-size: 40px;
     color: #67697C;
 }
 input {
     margin-bottom: 5px;
 	padding: 5px;
 	font-weight: lighter;
-	font-size: 20px;
+	font-size: 30px;
     border: 1px solid #D3D3D3;
 }
 input[type="submit"] {
