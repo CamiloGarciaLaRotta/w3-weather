@@ -19,13 +19,17 @@
         <header>
             <h1>W3 Weather</h1>
             <p>weather visualizer</p>
-            <form onsubmit="visualize()" method="post">
-                <input type="text" name="city-name" id="city-name" placeholder="Enter a city" required>
-                <input type="submit" value="Visualize">
+            <form class="js-city-form">
+                <input type="text" class="js-city-name" name="city-name" placeholder="Enter a city" required>
+                <input type="submit" class="js-city-submit" value="Visualize">
             </form>
         </header>
         <main>
-            <div class="background"></div>
+            <div class="background js-background"></div>
+            <section class="help-text js-help-text">
+                <p>DAMN DANIEL!</p>
+            </section>
+            <img class="help-btn js-help-btn" src="images/help.png" alt="help">
         </main>
         <!--Scripts-->
         <script

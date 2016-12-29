@@ -1,62 +1,71 @@
 /*General*/
+
 * {
-box-sizing:border-box;
+	box-sizing: border-box;
 }
-
-html,body {
-min-width:100%;
-min-height:100%;
+html, body {
+	min-width: 100%;
+	min-height: 100%;
 }
-
 header {
-position:fixed;
-left:50%;
-top:20%;
-transform:translate(-50%,-20%);
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%, -20%);
 }
-
-.background {
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-background-color:#FFF;
-margin:0;
-padding:0;
+.background {     /*DELETE IF ANIMATION DOESNT REQUIRE DIV*/
+    margin: 0;
+	padding: 0;
+    width: 100%;
+    height: 100%;   
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background-color: #FFF;
 }
-
-h1,p,input {
-font-family:'Roboto Condensed', sans-serif;
+.help-btn {
+    height: 50px;
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	z-index: 3;
 }
-
+.help-btn:active {
+	height: 45px;
+}
+.help-text {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+h1, p, input {
+	font-family: 'Roboto Condensed', sans-serif;
+}
 h1 {
-color:#253D5B;
-font-weight:700;
-font-size:60px;
-padding-bottom:0;
-margin:0;
+    margin: 0;
+	padding-bottom: 0;
+	font-weight: 700;
+	font-size: 60px;
+    color: #253D5B;
 }
-
 p {
-color:#67697C;
-font-style:italic;
-font-weight:lighter;
-font-size:30px;
-padding-top:0;
-margin:0 0 20px;
+    margin: 0 0 20px;
+    padding-top: 0;
+	font-style: italic;
+	font-weight: lighter;
+	font-size: 30px;
+    color: #67697C;
 }
-
 input {
-border:1px solid #D3D3D3;
-font-weight:lighter;
-font-size:20px;
-margin-bottom:5px;
-padding:5px;
+    margin-bottom: 5px;
+	padding: 5px;
+	font-weight: lighter;
+	font-size: 20px;
+    border: 1px solid #D3D3D3;
 }
-
 input[type="submit"] {
-background-color:#C6C6C6;
-color:#000;
+    color: #000;
+	background-color: #C6C6C6;
 }
