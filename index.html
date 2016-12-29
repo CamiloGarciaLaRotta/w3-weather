@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>W3 Weather</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--SEO-->
+        <meta name="description" content="Minimalistic World Wide Weather visualizer">
+        <!--Style Sheets-->
+        <link 
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+            integrity="sha256-t2/7smZfgrST4FS1DT0bs/KotCM74XlcqZN5Vu7xlrw="
+            crossorigin="anonymous"
+            rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>W3 Weather</h1>
+            <p>weather visualizer</p>
+            <form onsubmit="visualize()" method="post">
+                <input type="text" name="city-name" id="city-name" placeholder="Enter a city" required>
+                <input type="submit" value="Visualize">
+            </form>
+        </header>
+        <main>
+            <div class="background"></div>
+        </main>
+        <!--Scripts-->
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+        </script>
+        <script src="scripts/app.js"></script>
+    </body>
+</html>
