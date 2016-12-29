@@ -14,14 +14,16 @@
             rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <header>
             <h1>W3 Weather</h1>
             <p>weather visualizer</p>
             <form class="js-city-form">
-                <input type="text" class="js-city-name" name="city-name" placeholder="Enter a city" required>
+                <input type="text" class="js-city-name" name="city-name" placeholder="Enter a city">
                 <input type="submit" class="js-city-submit" value="Visualize">
+                <input type="submit" class="js-city-random" value="Random">
             </form>
         </header>
         <main>
@@ -35,6 +37,11 @@
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.5/p5.min.js" 
+            integrity="sha256-6RUtBmvYg4DyeVo3x5Lf4/0t27m1qOtZKtZlL85NFs4=" 
             crossorigin="anonymous">
         </script>
         <script src="scripts/app.js"></script>
