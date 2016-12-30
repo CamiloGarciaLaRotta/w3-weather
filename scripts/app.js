@@ -1,7 +1,7 @@
 //// Global variables
 
 var queryParameters = '&units=metric&APPID=6f36f42e1677237f380a89ee3b72edec'
-var API = 'http://api.openweathermap.org/data/2.5/weather'
+var API = 'https://api.openweathermap.org/data/2.5/weather'
 var defaultT = 25;
 var defaultS = 5;
 var defaultD = 45;
