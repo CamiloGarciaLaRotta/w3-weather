@@ -39,10 +39,15 @@ function Particle(){
     // position and velocity
     this.pos = new p5.Vector(getRandom(-windowWidth, windowWidth), getRandom(-windowHeight, windowWidth))
     this.v = new p5.Vector(0, 0)
+    this.D;
+    this.T;
     
     this.update = function() {
         this.pos.sub(this.v)
-        if ((this.pos.x > width) || (this.pos.y > height)) this.pos.set(getRandom(-windowWidth, windowWidth), getRandom(-windowHeight, windowWidth));
+        if ((this.pos.x > windowWidth +10) || (this.pos.y > windowHeight+10) ||
+            (this.pos.x < -10) || (this.pos.y < -10)) {
+                this.pos.set(getRandom(-windowWidth, windowWidth), getRandom(-windowHeight, windowHeight));
+            }
     }
 
     this.display = function() {
@@ -54,12 +59,19 @@ function Particle(){
 
 //// Helper Methods
 
-function setVelocity(x, y) {
+
+function setParticleParams(x, y, D, T) {
     for (var i=0;i<particles.length;i++) {
         particles[i].v.set(x, y)
+        particles[i].D = D
+        particles[i].T = T
     }
 }
 
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function toRads(deg) {
+    return deg * (Math.PI / 180)
 }

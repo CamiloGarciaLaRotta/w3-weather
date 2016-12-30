@@ -45,9 +45,12 @@ function watchForHelp() {
 
 function plotWeather(obj) {
     console.dir(obj)
-    var directioninRads = obj.D * (Math.PI / 180);
-    setVelocity(obj.S * Math.sin(directioninRads), obj.S * Math.cos(directioninRads))
+    var directioninRads = toRads(obj.D);
+    setParticleParams(obj.S * Math.sin(directioninRads), obj.S * Math.cos(directioninRads), obj.D, obj.T)
+    $('.js-output-weather').html('<p> Temperature:'+ obj.T + '&#176;  Wind Speed: ' + obj.S + 'm/s  Direction: ' + obj.D  +'&#176;</p>')
+
     $('#defaultCanvas0').show()
+
 }
 
 function handleWeather(city) {
