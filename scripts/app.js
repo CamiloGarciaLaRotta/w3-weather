@@ -64,6 +64,7 @@ function fetchWeather(city) {
     var cleanWeather = {};
     $.ajax({
         async: false,
+        method: 'POST',
         dataType: "json",
         url: API+'?q=' + city + queryParameters,
         success: function(obj) {
