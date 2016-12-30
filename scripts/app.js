@@ -5,9 +5,11 @@ var API = 'http://api.openweathermap.org/data/2.5/weather'
 var defaultT = 25;
 var defaultS = 5;
 var defaultD = 45;
+// to account for the coordinate system of p5.js
+var Dcorrection = 0;
 var defaultCities = ["Kathmandu", "Lhasa", "İstanbul", "Pya", "Hokkaidō", 
                     "Lisbon", "Helsinki", "Osuna", "Northwich", "Villa del Rosario", 
-                    "Santa Marta", "Leticia", "Cali"]
+                    "Santa Marta", "Leticia", "Cali", "Gibraltar"]
 
 //// Event Listeners
 
@@ -43,6 +45,9 @@ function watchForHelp() {
 
 function plotWeather(obj) {
     console.dir(obj)
+    var directioninRads = obj.D * (Math.PI / 180);
+    setVelocity(obj.S * Math.sin(directioninRads), obj.S * Math.cos(directioninRads))
+    $('#defaultCanvas0').show()
 }
 
 function handleWeather(city) {
@@ -51,18 +56,31 @@ function handleWeather(city) {
 }
 
 // return object containing weather factors required to visualize:
-// temperature (T) in celsius and wind speed (S) in meters/second + direction (D) in degrees
+// temperature (T) in celsius and wind speed (S) in meters/second + direction (D) in degrees                //TODO CHANGE AJAX TO getJSON check async
 function fetchWeather(city) {
     var cleanWeather = {};
-    $.getJSON(API, 'q='+city+queryParameters, function(obj) {
-        // Not all fetched objects have all the required keys
-        cleanWeather.T = (obj.main.temp) ? obj.main.temp : defaultT;
-        cleanWeather.S = (obj.wind.speed) ? obj.wind.speed : defaultS;
-        cleanWeather.D = (obj.wind.deg) ? obj.wind.deg : defaultD;
+    $.ajax({
+        async: false,
+        dataType: "json",
+        url: API+'?q=' + city + queryParameters,
+        success: function(obj) {
+            console.dir(obj)
+            cleanWeather.T = (obj.main.temp) ? obj.main.temp : defaultT;
+            cleanWeather.S = (obj.wind.speed) ? obj.wind.speed : defaultS;
+            cleanWeather.D = (obj.wind.deg) ? obj.wind.deg + Dcorrection : defaultD;
+        },
+        error: function(e) {alert(e)}
     })
+    // $.getJSON(API, 'q=' + city + queryParameters, function(obj) {
+    //     console.dir(obj)
+    //     cleanWeather.T = (obj.main.temp) ? obj.main.temp : defaultT;
+    //     cleanWeather.S = (obj.wind.speed) ? obj.wind.speed : defaultS;
+    //     cleanWeather.D = (obj.wind.deg) ? obj.wind.deg + Dcorrection : defaultD;
+    // })
 
-    return cleanWeather;
+    return cleanWeather
 }
+
 
 // Toggle help menu
 function transitionHelp() {

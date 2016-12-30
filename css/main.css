@@ -34,7 +34,6 @@ header {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-
 }
 .help-btn {
     height: 60px;
@@ -52,6 +51,7 @@ header {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	background: white;
 }
 h1, p, input {
 	font-family: 'Roboto Condensed', sans-serif;
