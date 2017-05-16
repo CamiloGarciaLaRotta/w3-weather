@@ -1,0 +1,14 @@
+body, object {
+  width:100%;
+}
+
+header {
+  color:#868789;
+  text-align:center;
+  font-family:"Trebuchet MS", Helvetica, sans-serif; 
+}
+embed {
+  height:900px;
+  width:900px;
+}
+
