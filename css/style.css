@@ -47,10 +47,10 @@ input, button {
     background: white;
     border-radius: 5px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";       /* IE 8 */
-    filter: alpha(opacity=90);  
-    -moz-opacity: 0.9;          
-    -khtml-opacity: 0.9;        
-    opacity: 0.9;     
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
 }
 
 .choices {
@@ -70,14 +70,14 @@ input, button {
 }
 
 
-div.columns { 
-	width: 90%; 
+div.columns {
+	width: 90%;
 	background: rgba(255,255,255,0.4);
 	min-height: 550px;
     border-radius: 5px;
 }
 div.clear { clear: both; }
-.centered { 
+.centered {
 	display: flex;
 	justify-content: center;
 }
