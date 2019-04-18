@@ -60,17 +60,15 @@ let watchForRandom = () => {
     })
 };
 
-let watchForHelp = () => $('.js-help-btn').click(_ => transitionHelp());
+let watchForHelp = () => $('.js-help-icon').click(_ => transitionHelp());
 
 //// Helper methods
 let plotWeather = obj => {
     let directioninRads = toRads(obj.D);
     setParticleParams(obj.S * Math.sin(directioninRads), obj.S * Math.cos(directioninRads), obj.D, obj.T);
     $('.js-output-weather').html(
-        '<p> Temperature:' + obj.T + '&#176;<br>Wind Speed: ' +
-        obj.S + 'm/s<br>Direction: ' + obj.D + '&#176;</p>');
-
-    $('#defaultCanvas0').show();
+        '<p> Temp:' + obj.T + '&#176;<br>Speed: ' +
+        obj.S + 'm/s<br>Dir: ' + obj.D + '&#176;</p>');
 };
 
 let handleWeather = city => plotWeather(fetchWeather(city));
@@ -103,12 +101,12 @@ let transitionHelp = () => {
         $('header').fadeOut('slow');
         $('.js-output-weather').fadeOut('slow');
         $('.js-help-text').fadeIn('slow');
-        $('.js-help-btn').attr('src', 'images/close.svg');
+        $('.js-help-icon').attr('src', 'images/close.svg');
     } else {
         $('.js-help-text').fadeOut("slow");
         $('header').fadeIn("slow");
         $('.js-output-weather').fadeIn('slow');
-        $('.js-help-btn').attr('src', 'images/help.svg');
+        $('.js-help-icon').attr('src', 'images/help.svg');
     }
 };
 

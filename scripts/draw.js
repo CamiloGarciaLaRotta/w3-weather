@@ -26,7 +26,7 @@ function setup() {
 function draw() {
     // only draw once a velocity from an input city has been given
     if (particles[0].v.x !== 0) {
-        background(255);
+        background('#f3f3f3');
         for (let i = 0; i < particles.length; i++) {
             particles[i].update();
             particles[i].display();
@@ -50,6 +50,7 @@ function Particle() {
     };
 
     this.display = () => {
+
         let color = '';
         if (this.T <= -5) color = 'rgb(105, 73, 255)';
         else if (this.T <= 5) color = 'rgb(22, 176, 221)';

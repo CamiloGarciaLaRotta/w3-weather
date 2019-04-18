@@ -1,24 +1,62 @@
+:root {
+	--bg-color: #f3f3f3;
+	--border-color: #C6C6C6;
+	--txt-color: #67697C;
+	--title-color: #588fe7;
+	--btn-active-color: #65a0ff;
+}
 * {
 	box-sizing: border-box;
-}
-
-html, body {
-	height:100%;
-	width: 100%;
 	margin:0;
 	padding:0;
 }
-
+html, body {
+	background: var(--bg-color);
+	width: 100%;
+}
+main, header {
+	padding: 0 10px;
+}
 header {
 	position: fixed;
 	left: 50%;
 	top: 20%;
 	transform: translate(-50%, -20%);
 }
-
+h1, h2, p, input {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+h1 {
+	font-size: 50px;
+	font-weight: 700;
+	color: var(--title-color);
+}
+h2, p {
+	font-weight: lighter;
+	color: var(--txt-color);
+	font-size: 25px;
+}
+p {
+	margin: 10px 0;
+}
+input {
+	padding: 5px;
+	font-size: 25px;
+	font-weight: lighter;
+	border: 1px solid var(--border-color);
+}
+input[type="text"] {
+	margin-top: 20px;
+}
+input[type="submit"] {
+	color: white;
+	background-color: var(--title-color);
+	margin-top: 5px;
+}
+input[type="submit"]:active {
+	background-color: var(--btn-active-color);
+}
 .background {
-	margin: 0;
-	padding: 0;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -27,36 +65,28 @@ header {
 	z-index: -1;
 }
 .output-weather{
-	margin: 0;
-	padding: 0;
 	position: fixed;
 	bottom: 0;
 	left: 50%;
+	margin-bottom: 40px;
+	border-radius: 5px;
 	transform: translate(-50%, 0);
-	background: white;
+	background: var(--bg-color);
 }
-#defaultCanvas0 {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-}
-.gh-btn {
+.icon {
 	height: 60px;
 	position: fixed;
 	bottom: 10px;
-	right: 10px;
 	z-index: 3;
 }
-.help-btn {
-	height: 60px;
-	position: fixed;
-	bottom: 10px;
-	left: 10px;
-	z-index: 3;
-}
-.help-btn:active {
+.icon:active {
 	height: 58px;
+}
+.gh-icon {
+	right: 10px;
+}
+.help-icon {
+	left: 10px;
 }
 .help-text {
 	display: none;
@@ -64,34 +94,24 @@ header {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background: white;
+	background: var(--bg-color);
 }
-h1, p, input {
-	font-family: 'Roboto Condensed', sans-serif;
-}
-h1 {
-	margin: 0;
-	padding-bottom: 0;
-	font-weight: 700;
-	font-size: 70px;
-	color:#72a0ea;
-}
-p {
-	margin: 0 0 20px;
-	padding-top: 0;
-	font-style: italic;
-	font-weight: lighter;
-	font-size: 40px;
-	color: #67697C;
-}
-input {
-	margin-bottom: 5px;
-	padding: 5px;
-	font-weight: lighter;
-	font-size: 30px;
-	border: 1px solid #D3D3D3;
-}
-input[type="submit"] {
-	color: #000;
-	background-color: #C6C6C6;
+
+@media screen and (min-width: 768px)
+{
+	main, header {
+		padding: 0px;
+	}
+	h1 {
+		font-size: 70px;
+	}
+	h2 {
+		font-size: 40px;
+	}
+	p {
+		font-size: 30px;
+	}
+	input {
+		font-size: 30px;
+	}
 }
