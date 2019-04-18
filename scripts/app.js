@@ -67,8 +67,8 @@ let plotWeather = obj => {
     let directioninRads = toRads(obj.D);
     setParticleParams(obj.S * Math.sin(directioninRads), obj.S * Math.cos(directioninRads), obj.D, obj.T);
     $('.js-output-weather').html(
-        '<p> Temp:' + obj.T + '&#176;<br>Speed: ' +
-        obj.S + 'm/s<br>Dir: ' + obj.D + '&#176;</p>');
+        '<p><strong>Temp:</strong> ' + obj.T + '&#176;C<br><strong>Speed:</strong> ' +
+        obj.S + 'm/s<br><strong>Dir:</strong> ' + obj.D + '&#176;</p>');
 };
 
 let handleWeather = city => plotWeather(fetchWeather(city));

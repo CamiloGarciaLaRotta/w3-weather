@@ -1,5 +1,3 @@
-//// Globals
-
 // DOM
 let windowWidth = $('.js-background').width();
 let windowHeight = $('.js-background').height();
@@ -50,7 +48,6 @@ function Particle() {
     };
 
     this.display = () => {
-
         let color = '';
         if (this.T <= -5) color = 'rgb(105, 73, 255)';
         else if (this.T <= 5) color = 'rgb(22, 176, 221)';
