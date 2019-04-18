@@ -67,8 +67,8 @@ let plotWeather = obj => {
     let directioninRads = toRads(obj.D);
     setParticleParams(obj.S * Math.sin(directioninRads), obj.S * Math.cos(directioninRads), obj.D, obj.T);
     $('.js-output-weather').html(
-        '<p> Temperature:' + obj.T + '&#176;  Wind Speed: ' +
-        obj.S + 'm/s  Direction: ' + obj.D + '&#176;</p>');
+        '<p> Temperature:' + obj.T + '&#176;<br>Wind Speed: ' +
+        obj.S + 'm/s<br>Direction: ' + obj.D + '&#176;</p>');
 
     $('#defaultCanvas0').show();
 };
@@ -101,12 +101,14 @@ let fetchWeather = city => {
 let transitionHelp = () => {
     if ($('.js-help-text').css('display') == 'none') {
         $('header').fadeOut('slow');
+        $('.js-output-weather').fadeOut('slow');
         $('.js-help-text').fadeIn('slow');
-        $('.js-help-btn').attr('src', 'images/close.png');
+        $('.js-help-btn').attr('src', 'images/close.svg');
     } else {
         $('.js-help-text').fadeOut("slow");
         $('header').fadeIn("slow");
-        $('.js-help-btn').attr('src', 'images/help.png');
+        $('.js-output-weather').fadeIn('slow');
+        $('.js-help-btn').attr('src', 'images/help.svg');
     }
 };
 

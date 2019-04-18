@@ -1,5 +1,3 @@
-/*General*/
-
 * {
 	box-sizing: border-box;
 }
@@ -43,6 +41,13 @@ header {
 	width: 100%;
 	height: 100%;
 }
+.gh-btn {
+	height: 60px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 3;
+}
 .help-btn {
 	height: 60px;
 	position: fixed;
@@ -51,11 +56,11 @@ header {
 	z-index: 3;
 }
 .help-btn:active {
-	height: 55px;
+	height: 58px;
 }
 .help-text {
 	display: none;
-	position: fixed;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
