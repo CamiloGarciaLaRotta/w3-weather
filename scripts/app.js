@@ -47,7 +47,7 @@ let watchForSubmit = () => {
             return;
         }
         let inputCity = $('.js-city-name').val();
-        handleWeather(inputCity);
+        fetchWeather(inputCity, plotWeather, displayError);
     })
 };
 
@@ -56,7 +56,7 @@ let watchForRandom = () => {
         ev.preventDefault();
         let randomCity = defaultCities[Math.floor(Math.random() * defaultCities.length)];
         $('.js-city-name').val(randomCity);
-        handleWeather(randomCity);
+        fetchWeather(randomCity, plotWeather, displayError);
     })
 };
 
@@ -71,29 +71,36 @@ let plotWeather = obj => {
         obj.S + 'm/s<br><strong>Dir:</strong> ' + obj.D + '&#176;</p>');
 };
 
-let handleWeather = city => plotWeather(fetchWeather(city));
-
-// return object containing weather factors required to visualize:
-// temperature (T) in celsius and wind speed (S) in meters/second + direction (D) in degrees                //TODO CHANGE AJAX TO getJSON check async
-let fetchWeather = city => {
-    let cleanWeather = {};
-    $.ajax({
-        async: false,
-        method: 'POST',
-        dataType: "json",
-        url: CORS_WRAPPER + API + '?q=' + city + queryParameters,
-        success: res => {
-            console.dir(res)
-            cleanWeather.T = (res.main.temp) ? res.main.temp : defaultT;
-            cleanWeather.S = (res.wind.speed) ? res.wind.speed : defaultS;
-            cleanWeather.D = (res.wind.deg) ? res.wind.deg + Dcorrection : defaultD;
-        },
-        error: e => console.log(e)
-    });
-
-    return cleanWeather;
+// fetch object containing weather factors required to visualize:
+// temperature (T) in celsius and wind speed (S) in meters/second + direction (D) in degrees
+let fetchWeather = (city, success, failure) => {
+    clearError();
+    fetch(CORS_WRAPPER + API + '?q=' + city + queryParameters)
+        .then(res => {
+            switch (res.status) {
+                case 200:
+                    return res;
+                case 404:
+                    failure("Could not find data for that city");
+                    throw Error(res.statusText);
+                case 429:
+                    failure("Free API: too many requests, please wait");
+                    throw Error(res.statusText);
+                default:
+                    throw Error(res.statusText);
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.dir(data);
+            let cleanWeather = {};
+            cleanWeather.T = (data.main.temp) ? data.main.temp : defaultT;
+            cleanWeather.S = (data.wind.speed) ? data.wind.speed : defaultS;
+            cleanWeather.D = (data.wind.deg) ? data.wind.deg + Dcorrection : defaultD;
+            success(cleanWeather);
+        })
+        .catch(e => console.log(e));
 };
-
 
 // Toggle help menu
 let transitionHelp = () => {
@@ -109,6 +116,13 @@ let transitionHelp = () => {
         $('.js-help-icon').attr('src', 'images/help.svg');
     }
 };
+
+let displayError = err => {
+    $('.js-err-msg').html(err);
+    $('.js-output-weather').empty();
+}
+
+let clearError = () => $('.js-err-msg').empty();
 
 $(function () {
     watchForSubmit();
