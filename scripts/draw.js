@@ -49,9 +49,11 @@ function Particle() {
 
     this.display = () => {
         let color = '';
-        if (this.T <= -5) color = 'rgb(105, 73, 255)';
+        if (this.T <= -15) color = 'rgb(105, 73, 255)';
+        else if (this.T <= -5) color = 'rgb(73, 121, 255)';
         else if (this.T <= 5) color = 'rgb(22, 176, 221)';
-        else if (this.T <= 15) color = 'rgb(255, 178, 0)';
+        else if (this.T <= 12) color = 'rgb(255, 213, 7)';
+        else if (this.T <= 25) color = 'rgb(255, 178, 0)';
         else color = 'rgb(242, 114, 66)';
         noStroke();
         fill(color);

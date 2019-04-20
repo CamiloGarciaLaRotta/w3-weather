@@ -1,3 +1,6 @@
+// GitHub pages doesn't allow to fetch HTTP resources, only HTTPS
+// because the openweather API free tier is only available in HTTP
+// we send the request to a CORS wrapper service.
 const CORS_WRAPPER = 'https://cors-anywhere.herokuapp.com/';
 const API = 'http://api.openweathermap.org/data/2.5/weather';
 const queryParameters = '&units=metric&APPID=6f36f42e1677237f380a89ee3b72edec';
