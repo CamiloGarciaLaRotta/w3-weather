@@ -78,6 +78,7 @@ let plotWeather = obj => {
 // temperature (T) in celsius and wind speed (S) in meters/second + direction (D) in degrees
 let fetchWeather = (city, success, failure) => {
     clearError();
+    $('.js-loading').fadeIn();
     fetch(CORS_WRAPPER + API + '?q=' + city + queryParameters)
         .then(res => {
             switch (res.status) {
@@ -95,6 +96,7 @@ let fetchWeather = (city, success, failure) => {
         })
         .then(res => res.json())
         .then(data => {
+            $('.js-loading').fadeOut();
             console.dir(data);
             let cleanWeather = {};
             cleanWeather.T = (data.main.temp) ? data.main.temp : defaultT;
